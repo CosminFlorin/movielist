@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "./node_modules/@material-ui/core";
-import MovieCard from "./components/MovieList/MovieCard.js";
+import { Typography } from "@material-ui/core";
+import MovieCard from './MovieCard';
 
 const MovieList = () => {
   return(

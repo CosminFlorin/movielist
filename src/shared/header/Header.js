@@ -7,8 +7,7 @@ import {
   Button,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Grid, Container } from "@material-ui/core";
-import Box from '@material-ui/core/Box';
+import { Grid } from "@material-ui/core";
 import 'typeface-roboto';
 
 const Header = () => {

@@ -1,4 +1,4 @@
-import React, { Component,useState } from "react";
+import React, { Component } from "react";
 // import InputBase from "@material-ui/core/InputBase";
 // import {Textfield} from '@material-ui/core '
 import axios from "axios"
@@ -7,7 +7,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import styles from "./Search.module.css";
 import ResultsList from "./ResultsList";
 // import MovieList from "./components/movielist/MovieList.js";
-import Settings from "../../config/Settings"
+import Settings from '../../api/config/Settings'
 class Search extends Component {
 
 
@@ -17,14 +17,14 @@ class Search extends Component {
   }
 
   handleSearch=()=>{
-console.log(this.state.searchTerm)
-const {API_URL,API_KEY}=Settings;
-const url = `${API_URL}/search/movie?api_key=${API_KEY}&query=${this.state.searchTerm}`
-axios.get(url).then((response)=>{
-  this.setState({
-    searchResults:response.data.results
-  })
-})
+    console.log(this.state.searchTerm)
+    const {API_URL,API_KEY}=Settings;
+    const url = `${API_URL}/search/movie?api_key=${API_KEY}&query=${this.state.searchTerm}`
+    axios.get(url).then((response)=>{
+      this.setState({
+        searchResults:response.data.results
+      })
+    })
   }
 
   //https://api.themoviedb.org/3/movie/1997?api_key=Helpme&language=en-US
