@@ -1,26 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./shared/header/Header.js";
+import { Grid, Container } from "@material-ui/core";
+import Search from "./components/search/Search.js";
+import MovieList from "./components/movielist/MovieList.js";
+import Movie from './components/movie/Movie.js'
+import ResultList from 'components/search/ResultList.js'
+import MovieCard from "./components/movielist/MovieCard"
+
+
+//   constructor(){
+//     super();
+//     this.state={
+// Movies: [],
+// searchField:""
+//     }
+    
+//   }
+
+// componentDidMount(){
+// fetch("https://api.themoviedb.org/3/movie/550?api_key=5cb751e64855ab4548a6d298c4270eea")
+// .then(response=>{
+//   return response.json()
+// })
+// .then(Movies=>{
+//   this.setState({Movies:[...data.results]})
+// })
+
+// }
+
+
+//   onSearchChange=event =>{
+// this.setState({searchField:event.target.value.toLowerCase()});
+
+//   }
+ 
+
+
+
+function App(){
+
+return (
+  <div className="App">
+  <Header />
+  <br />
+  <Grid container>
+    <Grid item xs={3} />
+    <Grid item xs={6}>
+      <Search  handleChange={this.onSearchChange}/>
+    </Grid>
+    <br /> <br /> <br />
+  </Grid>
+  <Container maxWidth="sm">
+    <MovieCard />
+
+  </Container>
+</div>
+
+
+)
+
 }
 
 export default App;
