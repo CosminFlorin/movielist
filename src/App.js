@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import Header from "./shared/header/Header.js";
 import { Grid, Container } from "@material-ui/core";
 import Search from "./components/search/Search.js";
-import MovieList from "./components/movielist/MovieList.js";
+import MovieList from "./components/MovieList/MovieList.js";
 import Movie from './components/movie/Movie.js'
-import ResultList from 'components/search/ResultList.js'
-import MovieCard from "./components/movielist/MovieCard"
+import ResultsList from 'components/search/ResultList.js'
+import MovieCard from "./components/MovieList/MovieCard"
 
 
 //   constructor(){
@@ -52,7 +52,7 @@ return (
     <br /> <br /> <br />
   </Grid>
   <Container maxWidth="sm">
-    <MovieCard />
+ 
 
   </Container>
 </div>

@@ -8,7 +8,7 @@ import {
   CardActions,
   Button,
   Typography,
-} from "@material-ui/core";
+} from "./@material-ui/core";
 
 const MovieCard = () => {                                                                                                                              
   return (

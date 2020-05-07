@@ -1,11 +1,12 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
-import MovieCard from "./components/movielist/MovieCard";
+import { Typography } from "./node_modules/@material-ui/core";
+import MovieCard from "./components/MovieList/MovieCard.js";
 
 const MovieList = () => {
   return(
-
-  <MovieCard/>
+<React.Fragment>
+<MovieCard/>
+</React.Fragment>
    
   )
 };
