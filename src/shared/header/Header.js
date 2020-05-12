@@ -8,9 +8,8 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Grid } from "@material-ui/core";
-import 'typeface-roboto';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <AppBar position="static">
       <Toolbar>
@@ -23,7 +22,7 @@ const Header = () => {
             <Typography className="Typograpy" style={{paddingTop: "6px"}} > Movie List </Typography>
           </Grid>
           <Grid item xs={2}>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" onClick={() => props.history.push("/login")}>Login</Button>
           </Grid>
         </Grid>
       </Toolbar>

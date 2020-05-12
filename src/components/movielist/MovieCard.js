@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from 'react'
 import {
   Card,
   CardActionArea,
@@ -8,29 +7,28 @@ import {
   CardActions,
   Button,
   Typography,
-} from "@material-ui/core";
+} from '@material-ui/core'
 
-const MovieCard = () => {                                                                                                                              
+const MovieCard = (props) => {
+  const { movie } = props
   return (
     <Card>
       <CardActionArea>
         <CardContent>
           <CardMedia image="" description="movie poster"></CardMedia>
-            <Typography variant="h5">Movie Title</Typography>
-            <Typography variant="subtitle2" color="textSecondary">Movie description</Typography>
-        
+          <Typography variant="h5">{movie.original_title}</Typography>
+          <Typography variant="body2" color="textSecondary">
+            {movie.release_date}
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-
-      <Button size="small" color="primary">
+        <Button size="small" color="primary">
           Delete
         </Button>
-
       </CardActions>
     </Card>
-  );
-};
+  )
+}
 
-
-export default MovieCard;
+export default MovieCard

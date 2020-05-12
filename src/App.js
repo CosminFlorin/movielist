@@ -1,52 +1,53 @@
-import React from "react";
+import React from 'react'
+import Header from './shared/header/Header'
+import  { Grid,Container }  from '@material-ui/core/'
 
-import Header from "./shared/header/Header.js";
-import { Grid, Container } from "@material-ui/core";
-import Search from "./components/search/Search.js";
+import MovieList from './components/movieList/MovieList'
+import Search from './components/search/Search'
 
-  
-export default class App extends React.Component {
-
-  state={
-    Movies: [],
-    searchField:""
+class App extends React.Component {
+  state = {
+    savedMovies: [],
   }
 
-  componentDidMount(){
-    fetch("https://api.themoviedb.org/3/movie/550?api_key=5cb751e64855ab4548a6d298c4270eea")
-    .then(response=>{
-      return response.json()
+  componentDidMount() {
+    const saved = localStorage.getItem('userData')
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      this.setState({
+        savedMovies: parsed.savedMovies,
+      })
+    }
+  }
+  onMovieAdd = (movie) => {
+    const movies = this.state.savedMovies
+    movies.push(movie)
+
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({
+        savedMovies: movies,
+      }),
+    )
+
+    this.setState({
+      savedMovies: movies,
     })
-    .then( data =>{
-      console.log(data)
-      this.setState({ Movies: [data] })
-    })
   }
 
-
-  onSearchChange=event =>{
-    this.setState({searchField:event.target.value.toLowerCase()});
-  }
- 
   render() {
-    
     return (
       <div className="App">
         <Header />
-        <br />
-        <Grid container>
-          <Grid item xs={3} />
-          <Grid item xs={6}>
-            <Search  handleChange={this.onSearchChange}/>
-          </Grid>
-          <br /> <br /> <br />
-        </Grid>
-        <Container maxWidth="sm">
-      
-      
+        <Container maxWidth="md">
+          <Search onMovieAdd={this.onMovieAdd} />
+        </Container>
+        <Container maxWidth="md">
+          <MovieList savedMovies={this.state.savedMovies} />
         </Container>
       </div>
     )
   }
-
 }
+
+export default App

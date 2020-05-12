@@ -2,9 +2,12 @@ div.container {
 
     margin: 16px  0;
     display: flex;
+    justify-content: center;
+    padding-left: 100px;
 }
 
 div.search {
-    width: 75%;
-    margin-right: 8px;
+    width: 30%;
+    margin-right: 20px;
+    
 }
