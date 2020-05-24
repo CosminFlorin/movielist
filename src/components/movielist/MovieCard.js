@@ -8,9 +8,11 @@ import {
   Button,
   Typography,
 } from '@material-ui/core'
+ import Rating from "./Rating"
+
 
 const MovieCard = (props) => {
-  const { movie } = props
+  const { movie,changeRating } = props
   return (
     <Card>
       <CardActionArea>
@@ -20,6 +22,9 @@ const MovieCard = (props) => {
           <Typography variant="body2" color="textSecondary">
             {movie.release_date}
           </Typography>
+          <div>
+            <Rating userRating={props.movie.userRating} changeRating={changeRating} movie={movie}/>
+          </div>
         </CardContent>
       </CardActionArea>
       <CardActions>

@@ -20,10 +20,10 @@ const ResultsList = (props) => (
     {props.movies.map((item) => (
       <Grid container xs={12}>
         <Grid item xs={2}>
-          <img src={getPosterUrl(item.poster_path)} className={styles.poster} />
+          <img  alt="image not found" src={getPosterUrl(item.poster_path)} className={styles.poster}/>
         </Grid>
         <Grid item xs={3}>
-          {item.original_title}
+        {item.original_title}
         </Grid>
         <Grid item xs={2}>
           {item.release_date}

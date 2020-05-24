@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 import {
   AppBar,
   Toolbar,
   IconButton,
   Typography,
   Button,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Grid } from "@material-ui/core";
+} from '@material-ui/core'
+
+import MenuIcon from '@material-ui/icons/Menu'
 
 const Header = (props) => {
   return (
@@ -16,20 +16,23 @@ const Header = (props) => {
         <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
-
-        <Grid container>
-          <Grid item xs={8} 	>
-            <Typography className="Typograpy" style={{paddingTop: "6px"}} > Movie List </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Button color="inherit" onClick={() => props.history.push("/login")}>Login</Button>
-          </Grid>
-        </Grid>
+        <Typography
+          style={{
+            flexGrow: 1,
+          }}
+          variant="h6">
+          
+          Movie List 
+        </Typography>
+        {props.user && <span>{props.user.userName}</span>}
+        {props.user && (
+          <Button onClick={props.onLogout} color="inherit">
+            Logout
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
-  );
-};
-
-
+  )
+}
 
 export default Header;
