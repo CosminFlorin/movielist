@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const savedMovies = localStorage.getItem('userData2')
+    const savedMovies = localStorage.getItem('userData')
     const userDetails = localStorage.getItem('userDetails')
     if (userDetails) {
       const parsedUser = JSON.parse(userDetails)
@@ -24,7 +24,6 @@ class App extends React.Component {
     } else {
       // handle redirect to login?
     }
-
     if (savedMovies) {
       try {
         const parsed = JSON.parse(savedMovies)
@@ -38,7 +37,7 @@ class App extends React.Component {
   }
 
   onMovieAdd = (movie) => {
-    const movies = this.state.savedMovies
+    const movies = this.state.savedMovies.slice(0)
     movies.push(movie)
 
     localStorage.setItem(
@@ -73,10 +72,19 @@ class App extends React.Component {
     })
   }
 
-  changeRating=(rating,movie)=>{
-   Object.assign({},movie,{userRating:rating})
-   console.log(movie,{userRating:rating}
-    )
+  changeRating=(rating,id)=>{
+    var movie =this.state.savedMovies.find((item)=>item.id===id)
+   var data = Object.assign({}, movie, { userRating: rating })
+
+   this.setState({
+     savedMovies: this.state.savedMovies.map((item) => {
+       if (item.id === id)
+         return data;
+       else return item;
+     }),
+   }, () => {
+    localStorage.setItem("userData",JSON.stringify({savedMovies:this.state.savedMovies}))
+   });
   }
   logout = () => {
     this.setState({ user: null })
@@ -86,6 +94,7 @@ class App extends React.Component {
 
   render() {
     const { savedMovies, user } = this.state
+    console.log(savedMovies)
     return (
       <div className="App">
         <Header user={user} onLogout={this.logout} />
@@ -95,7 +104,7 @@ class App extends React.Component {
               <Search onMovieAdd={this.onMovieAdd} />
             </Container>
             <Container maxWidth="md">
-              <MovieList savedMovies={savedMovies} changeRating={this.changeRating} />
+              <MovieList savedMovies={savedMovies} changeRating={this.changeRating}  />
             </Container>
           </React.Fragment>
         ) : (

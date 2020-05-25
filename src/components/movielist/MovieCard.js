@@ -12,7 +12,7 @@ import {
 
 
 const MovieCard = (props) => {
-  const { movie,changeRating } = props
+  const { movie,changeRating } = props;
   return (
     <Card>
       <CardActionArea>
@@ -23,7 +23,7 @@ const MovieCard = (props) => {
             {movie.release_date}
           </Typography>
           <div>
-            <Rating userRating={props.movie.userRating} changeRating={changeRating} movie={movie}/>
+            <Rating changeRating={changeRating} movie={movie}/>
           </div>
         </CardContent>
       </CardActionArea>
