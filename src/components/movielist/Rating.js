@@ -4,7 +4,8 @@ import Star from "@material-ui/icons/Star";
 import StarBorder from "@material-ui/icons/StarBorder";
 import { Icon } from "@material-ui/core";
 import styles from "./Rating.module.css";
-
+import Box from '@material-ui/core/Box';
+ 
 class Rating extends Component {
   constructor(props) {
     super(props);

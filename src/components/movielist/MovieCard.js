@@ -29,7 +29,7 @@ const MovieCard = (props) => {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Delete
+          Deletee
         </Button>
       </CardActions>
     </Card>
