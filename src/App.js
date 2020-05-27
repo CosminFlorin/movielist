@@ -34,7 +34,8 @@ class App extends React.Component {
         console.log('App crashed check user input...')
       }
     }
-  }
+  }  
+
 
   onMovieAdd = (movie) => {
     const movies = this.state.savedMovies.slice(0)
@@ -51,6 +52,9 @@ class App extends React.Component {
       savedMovies: movies,
     })
   }
+ 
+
+ 
 
   handleAddUser = (event) => {
     localStorage.setItem('userDetails', JSON.stringify({
@@ -86,6 +90,18 @@ class App extends React.Component {
     localStorage.setItem("userData",JSON.stringify({savedMovies:this.state.savedMovies}))
    });
   }
+ deleteMovie=(id)=> {
+this.setState({
+  savedMovies:this.state.savedMovies.filter((item)=>item.id !== id)
+},()=>{
+  localStorage.setItem("userData",JSON.stringify({savedMovies:this.state.savedMovies}))
+})
+
+ }
+
+
+
+
   logout = () => {
     this.setState({ user: null })
     localStorage.removeItem('userDetails')
@@ -104,13 +120,13 @@ class App extends React.Component {
               <Search onMovieAdd={this.onMovieAdd} />
             </Container>
             <Container maxWidth="md">
-              <MovieList savedMovies={savedMovies} changeRating={this.changeRating}  />
+              <MovieList savedMovies={savedMovies} changeRating={this.changeRating} deleteMovie={this.deleteMovie} />
             </Container>
           </React.Fragment>
         ) : (
             <Container maxWidth="md">
-              <h2>Hello stranger!</h2>
-              <h4>What is your name?</h4>
+              <h2>Please Login!</h2>
+              <h4>Type your name !</h4>
               <TextField label="Name" onChange={this.onUserChange} />
               <Button variant="contained"  onClick={this.handleAddUser} >Save</Button>
             </Container>

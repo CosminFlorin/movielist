@@ -11,8 +11,9 @@ import {
  import Rating from "./Rating"
 
 
+
 const MovieCard = (props) => {
-  const { movie,changeRating } = props;
+  const { movie,changeRating,deleteMovie} = props;
   return (
     <Card>
       <CardActionArea>
@@ -28,8 +29,8 @@ const MovieCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Deletee
+        <Button size="small" color="primary" onClick={()=>deleteMovie(movie.id)} >
+          Delete 
         </Button>
       </CardActions>
     </Card>

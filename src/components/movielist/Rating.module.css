@@ -1,7 +1,6 @@
 .star {
 
-    color:yellow
-}
+    color:yellow}
 
 .star:hover {
 
@@ -9,3 +8,13 @@
     
 }
 
+.starr {
+
+color:grey
+  
+}
+
+.starr:hover{
+
+    color: orange
+}
