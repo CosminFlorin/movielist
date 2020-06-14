@@ -79,6 +79,7 @@ class Search extends Component {
             <ResultsList
               movies={this.state.searchResults}
               onAdd={this.handleAdd}
+              favorite={this.favoriteMovie}
             />
           </Container>
         )}

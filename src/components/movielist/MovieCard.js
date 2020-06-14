@@ -7,13 +7,15 @@ import {
   CardActions,
   Button,
   Typography,
+  
 } from '@material-ui/core'
  import Rating from "./Rating"
+ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
 
 const MovieCard = (props) => {
-  const { movie,changeRating,deleteMovie} = props;
+  const { movie,changeRating,deleteMovie,favoriteMovie} = props;
   return (
     <Card>
       <CardActionArea>
@@ -31,6 +33,9 @@ const MovieCard = (props) => {
       <CardActions>
         <Button size="small" color="primary" onClick={()=>deleteMovie(movie.id)} >
           Delete 
+        </Button>
+        <Button size="small" color="primary" onClick={()=>favoriteMovie(movie.id)} >
+          <FavoriteBorderIcon />
         </Button>
       </CardActions>
     </Card>

@@ -76,29 +76,42 @@ class App extends React.Component {
     })
   }
 
-  changeRating=(rating,id)=>{
-    var movie =this.state.savedMovies.find((item)=>item.id===id)
-   var data = Object.assign({}, movie, { userRating: rating })
+  changeRating = (rating, id) => {
+    var movie = this.state.savedMovies.find((item) => item.id === id);
+    var data = Object.assign({}, movie, { userRating: rating });
 
-   this.setState({
-     savedMovies: this.state.savedMovies.map((item) => {
-       if (item.id === id)
-         return data;
-       else return item;
-     }),
-   }, () => {
-    localStorage.setItem("userData",JSON.stringify({savedMovies:this.state.savedMovies}))
-   });
-  }
- deleteMovie=(id)=> {
-this.setState({
-  savedMovies:this.state.savedMovies.filter((item)=>item.id !== id)
-},()=>{
-  localStorage.setItem("userData",JSON.stringify({savedMovies:this.state.savedMovies}))
-})
-
- }
-
+    this.setState(
+      {
+        savedMovies: this.state.savedMovies.map((item) => {
+          if (item.id === id) return data;
+          else return item;
+        }),
+      },
+      () => {
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ savedMovies: this.state.savedMovies })
+        );
+      }
+    );
+  };
+  deleteMovie = (id) => {
+    this.setState(
+      {
+        savedMovies: this.state.savedMovies.filter((item) => item.id !== id),
+      },
+      () => {
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ savedMovies: this.state.savedMovies })
+        );
+      }
+    );
+  };
+  favoriteMovie=(id)=>{
+    console.log("hello from heart")
+    
+    }
 
 
 
@@ -120,7 +133,7 @@ this.setState({
               <Search onMovieAdd={this.onMovieAdd} />
             </Container>
             <Container maxWidth="md">
-              <MovieList savedMovies={savedMovies} changeRating={this.changeRating} deleteMovie={this.deleteMovie} />
+              <MovieList savedMovies={savedMovies} changeRating={this.changeRating} deleteMovie={this.deleteMovie}favoriteMovie={this.favoriteMovie} />
             </Container>
           </React.Fragment>
         ) : (
