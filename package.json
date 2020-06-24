@@ -1,5 +1,6 @@
 {
   "name": "movie-list-web4",
+  "homepage": "https://cosminflorin.github.io/movielist/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
