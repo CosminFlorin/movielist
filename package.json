@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "movie-list-web4",
   "homepage": "https://CosminFlorin.github.io/movielist/",
+=======
+  "name": "movielist",
+  "homepage": "https://cosminflorin.github.io/movielist/",
+>>>>>>> 35f079ddb8aa822cb96c7c147e36276e5bf22448
   "version": "0.1.0",
   "private": true,
   "dependencies": {
