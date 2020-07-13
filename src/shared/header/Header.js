@@ -5,17 +5,23 @@ import {
   IconButton,
   Typography,
   Button,
-} from '@material-ui/core'
-
+} from '@material-ui/core';
+import {
+ 
+  Link
+} from "react-router-dom";
+import SettingsIcon from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu'
 
 const Header = (props) => {
   return (
     <AppBar position="static">
       <Toolbar>
+      <Link to="/">
         <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
         </IconButton>
+         </Link>
         <Typography
           style={{
             flexGrow: 1,
@@ -26,10 +32,12 @@ const Header = (props) => {
         </Typography>
         {props.user && <span>{props.user.userName}</span>}
         {props.user && (
+          <>
+          <IconButton color="inherit"><Link to="settings"><SettingsIcon/></Link></IconButton>
           <Button onClick={props.onLogout} color="inherit">
             Logout
           </Button>
-        )}
+        </>)}
       </Toolbar>
     </AppBar>
   )
